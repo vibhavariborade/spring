@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <h4>Employee Details</h4>
+ <form action="#" th:action="@{/add}" method="post" th:object="${book}">
+
+<label>Book title:</label>
+<input type="text" th:field="*{title}" /><br/>
+<span style="color:red;" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"  ></span><br>
+
+<label>Book publisher:</label>
+<input type="text" th:field="*{publisher}" /><br/>
+<span style="color:red;" th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}"  ></span><br>
+
+<label>Author name :</label>
+<input type="text" th:field="*{name}" /><br/>
+<span style="color:red;" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  ></span><br>
+
+<label>Author email:</label>
+<input type="text" th:field="*{email}" /><br/>
+<span style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  ></span><br>
+
+<label>Author contact :</label>
+<input type="number" th:field="*{contactNumber}" /><br/>
+<span style="color:red;" th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"  ></span><br>
+
+
+<input type="submit" value="Submit">
+
+ </form>
+</body>
+</html>

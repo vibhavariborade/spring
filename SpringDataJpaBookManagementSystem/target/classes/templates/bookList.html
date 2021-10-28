@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="add"> Add Book</a>
+<br>
+<br>
+<br>
+<a href="getBooks"> All Books</a>
+<br>
+<br>
+<form action="#" th:action="@{/filterBooks}" method="post" >
+<label>Enter book title</label>
+<input  type="text" name="bookTitle" /><br/>
+</form>
+
+ <h4>Book Details</h4>
+<table border="2">
+<tr>
+<th>Book Id</th>
+<th>Title</th>
+<th>Author</th>
+<th>Publisher</th>
+<th>Action</th>
+</tr>
+
+<tr th:each="book : *{bookList}">
+
+ <td th:text='${book.bookId}'></td>
+<td th:text='${book.title}'></td>
+<td th:text='${book.author}'></td>
+<td th:text='${book.publisher}'></td>
+<td><a th:href="@{/edit/{bookId}(bookId=${book.bookId})}">Edit</a>/<a th:href="@{/delete/{bookId}(bookId=${book.bookId})}" >Delete</a></td>
+</tr>
+
+</table>
+</body>
+</html>
